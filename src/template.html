@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    hello
+    <button class="add-project">Add Project</button>
+    <div class="project-container"></div>
+    <dialog class="project-dialog">
+        <form method="dialog">
+            <p>
+                <label for="project">Name: </label>
+                <input type="text" id="project-input" name="project">
+            </p>
+            <p>
+                <button type="submit" id="submit-project">Add</button>
+            </p>
+        </form>
+    </dialog>
+
+    <div class="task-container"></div>
+    <dialog class="task-dialog">
+        <form method="dialog">
+            <label for="task-title">Task Name:</label>
+            <input type="text" id="task-title">
+            <button type="submit" id="submit-task">Add</button>
+        </form>
+    </dialog>
+
 </body>
+
 </html>
