@@ -1,61 +1,48 @@
-import { Container, Project } from "./to-do-list";
-import { showTaskUI } from "./task-ui";
+import { getProjectList, addProject, Project, removeProject } from "./project";
 
-function ProjectUI() {
+const projects = document.querySelector(".projects")
+const addProjectBtn = document.querySelector(".add-project")
+const projectDialog = document.querySelector(".project-dialog")
+const projectInput = document.querySelector("#project-input")
+const submitProject = document.querySelector("#submit-project")
 
-    const container = Container()
+function updateProjectUI() {
+    projects.textContent = ""
 
-    //example 
-    const gym = Project("gym")
-    const study = Project("study")
-    container.addProject(gym)
-    container.addProject(study)
+    getProjectList().forEach(project => {
+        const projectCard = document.createElement("div")
+        const projectDeleteBtn = document.createElement("button")
+        projectDeleteBtn.textContent = "X";
 
-    const projectContainer = document.querySelector(".project-container")
-    const addProjectBtn = document.querySelector(".add-project")
-    const projectDialog = document.querySelector(".project-dialog")
-    const submitProject = document.getElementById("submit-project")
-    const projectInp = document.getElementById("project-input")
+        const projectName = document.createElement("button")
+        projectName.textContent = project.getProjectName();
 
-    const updateProjectContainer = () => {
-        projectContainer.textContent = "";
+        projectDeleteBtn.addEventListener("click", () => deleteProjectInList(project))
 
-        for (const project of container.getProjectContainer()) {
-            console.log(project.name)
-
-            const projectBtn = document.createElement("button")
-            projectBtn.textContent = project.name.toUpperCase()
-
-            projectBtn.addEventListener("click", () => showTaskUI(project))
-
-            projectContainer.appendChild(projectBtn)
-        }
-    }
-
-    const addProjectEvent = () => {
-        addProjectBtn.addEventListener("click", () => {
-            projectDialog.showModal()
-        })
-
-        submitProject.addEventListener("click", (event) => {
-            event.preventDefault();
-
-            let newProject = projectInp.value
-
-            newProject = Project(newProject)
-            container.addProject(newProject)
-
-            projectDialog.close()
-            updateProjectContainer()
-            console.log(container.getProjectContainer())
-        })
-    }
-
-    
-
-    updateProjectContainer()
-    addProjectEvent()
-    
+        projectCard.appendChild(projectName)
+        projectCard.appendChild(projectDeleteBtn)
+        projects.appendChild(projectCard)
+    })
 }
 
-export { ProjectUI }
+
+addProjectBtn.addEventListener("click", () => {
+    projectDialog.showModal()
+})
+
+submitProject.addEventListener("click", () => {
+
+    if(!projectInput.value) return
+
+    let newProjectName = projectInput.value
+    const newProject = Project(newProjectName)
+    addProject(newProject)
+    updateProjectUI()
+    projectInput.value = ""
+})
+
+
+function deleteProjectInList(name) {
+    removeProject(name)
+    updateProjectUI()
+}
