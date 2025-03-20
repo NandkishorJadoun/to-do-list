@@ -8,26 +8,52 @@
 </head>
 
 <body>
-    <button class="add-project">Add Project</button>
-    <div class="project-container"></div>
-    <dialog class="project-dialog">
-        <form method="dialog">
-            <p>
-                <label for="project">Name: </label>
-                <input type="text" id="project-input" name="project">
-            </p>
-            <p>
-                <button type="submit" id="submit-project">Add</button>
-            </p>
-        </form>
-    </dialog>
+    <div id="project-container">
+        <button class="add-project">Add Project</button>
+        <div class="projects"></div>
+        <dialog class="project-dialog">
+            <form method="dialog">
+                <p>
+                    <label for="project">Name: </label>
+                    <input type="text" id="project-input" name="project">
+                </p>
+                <p>
+                    <button type="submit" id="submit-project">Add</button>
+                </p>
+            </form>
+        </dialog>
+    </div>
 
-    <div class="task-container"></div>
+    <div id="task-container">
+        <div class="tasks"></div>
+    </div>
+
+
     <dialog class="task-dialog">
         <form method="dialog">
-            <label for="task-title">Task Name:</label>
-            <input type="text" id="task-title">
-            <button type="submit" id="submit-task">Add</button>
+            <p>
+                <label for="task-title">Task Name:</label>
+                <input type="text" id="task-title" name="task-title">
+            </p>
+
+            <p>
+                <label for="task-desc">Description: </label>
+                <input type="text" name="task-desc" id="task-desc">
+            </p>
+
+            <p>
+                <label for="task-due-date">Due Date: </label>
+                <input type="text" name="task-due-date" id="task-due-date">
+            </p>
+
+            <p>
+                <label for="task-priority">Priority: </label>
+                <input type="text" name="task-priority" id="task-priority">
+            </p>
+            
+            <p>
+                <button type="submit" id="submit-task">Add</button>
+            </p>
         </form>
     </dialog>
 
