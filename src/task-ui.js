@@ -1,6 +1,5 @@
 import { Task } from "./task";
 
-/* const tasks = document.querySelector(".tasks") */
 const taskContainer = document.querySelector("#task-container")
 const taskDialog = document.querySelector(".task-dialog")
 const submitTaskBtn = document.querySelector("#submit-task")
@@ -11,14 +10,35 @@ const taskDueDateInp = document.querySelector("#task-due-date")
 const taskPriorityInp = document.querySelector("#task-priority")
 
 
-export function getAddTaskBtn(project) {
+export function getTaskUi(project) {
     taskContainer.textContent = ""
+    getAddTaskBtn()
+    submitTaskBtn.onclick = () => addNewTask(project)
+    updateTaskUI(project)
+}
 
+function getAddTaskBtn() {
     const addTaskBtn = document.createElement("button")
     addTaskBtn.textContent = "Add Tasks"
     addTaskBtn.onclick = () => showTaskDialog()
     taskContainer.appendChild(addTaskBtn)
-    submitTaskBtn.onclick = () => addNewTask(project)
+}
+
+function updateTaskUI(project) {
+    project.getTaskList().forEach(task => {
+        const tasks = document.createElement("div")
+        const taskCard = document.createElement("div")
+        const taskName = document.createElement("button")
+        const taskDeleteBtn = document.createElement("button")
+
+        taskName.textContent = task.title
+        taskDeleteBtn.textContent = "DLT"
+
+        taskCard.appendChild(taskName)
+        taskCard.appendChild(taskDeleteBtn)
+        tasks.appendChild(taskCard)
+        taskContainer.appendChild(tasks)
+    });
 }
 
 
@@ -35,6 +55,6 @@ function addNewTask(project) {
     const newTask = new Task(newTaskName, newTaskDesc, newTaskDueDate, newTaskPriority)
 
     project.addTask(newTask)
-
+    updateTaskUI(project)
     console.log(project.getProjectName(), project.getTaskList())
 }
