@@ -4,7 +4,7 @@ import "./styles.css"
 
 import { Task } from "./task";
 
-import { getAddTaskBtn } from "./task-ui";
+import { getTaskUi } from "./task-ui";
 
 const addProjectBtn = document.querySelector(".add-project")
 const projectDialog = document.querySelector(".project-dialog")
@@ -27,7 +27,7 @@ function updateProjectUI(){
 
         projectDeleteBtn.onclick = () => deleteProject(project) 
         projectName.onclick = () => {
-            getAddTaskBtn(project)
+            getTaskUi(project)
             console.log(project.getProjectName())
         }
 
