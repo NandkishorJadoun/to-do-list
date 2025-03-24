@@ -2,6 +2,9 @@ import { addProject, removeProject, getProjectList, Project } from "./project";
 
 import "./styles.css"
 
+import { Task } from "./task";
+
+import { getAddTaskBtn } from "./task-ui";
 
 const addProjectBtn = document.querySelector(".add-project")
 const projectDialog = document.querySelector(".project-dialog")
@@ -23,6 +26,10 @@ function updateProjectUI(){
         projectName.textContent = project.getProjectName()
 
         projectDeleteBtn.onclick = () => deleteProject(project) 
+        projectName.onclick = () => {
+            getAddTaskBtn(project)
+            console.log(project.getProjectName())
+        }
 
         projectCard.appendChild(projectName)
         projectCard.appendChild(projectDeleteBtn)
@@ -41,7 +48,6 @@ function addNewProject(){
     const newProjectName = projectInp.value
     const newProject = Project(newProjectName)
     addProject(newProject)
-    console.log(getProjectList())
     projectInp.value = ""
     updateProjectUI()
 }
