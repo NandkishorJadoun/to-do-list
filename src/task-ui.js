@@ -31,6 +31,7 @@ function updateTaskUI(project) {
         const taskName = document.createElement("button")
         const taskDeleteBtn = document.createElement("button")
 
+        taskName.onclick = () => openTaskDetails(task)
         taskDeleteBtn.onclick = () => deleteTask(project, task)
 
         taskName.textContent = task.title
@@ -66,4 +67,30 @@ function addNewTask(project) {
 function deleteTask(project, task){
     project.removeTask(task)
     getTaskUi(project)
+}
+
+function openTaskDetails(task){
+    const taskInfoDialog = document.createElement("dialog")
+    document.body.appendChild(taskInfoDialog)
+    taskInfoDialog.showModal()
+
+    const taskInfoTitle = document.createElement("p")
+    const taskInfoDesc = document.createElement("p")
+    const taskInfoDueDate = document.createElement("p")
+    const taskInfoPriority = document.createElement("p")
+
+    taskInfoTitle.textContent = `Name: ${task.title}`
+    taskInfoDesc.textContent = `Description: ${task.description}`
+    taskInfoDueDate.textContent = `Due Date: ${task.dueDate}`
+    taskInfoPriority.textContent = `Priority: ${task.priority}`
+
+    const taskInfoCloseBtn = document.createElement("button")
+    taskInfoCloseBtn.textContent = "Close"
+    taskInfoCloseBtn.onclick = () => taskInfoDialog.close()
+    
+    taskInfoDialog.appendChild(taskInfoTitle)
+    taskInfoDialog.appendChild(taskInfoDesc)
+    taskInfoDialog.appendChild(taskInfoDueDate)
+    taskInfoDialog.appendChild(taskInfoPriority)
+    taskInfoDialog.appendChild(taskInfoCloseBtn)
 }

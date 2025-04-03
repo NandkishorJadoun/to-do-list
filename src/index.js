@@ -4,6 +4,9 @@ import "./styles.css"
 
 import { getTaskUi } from "./task-ui";
 
+const defaultProject = Project("Default")
+addProject(defaultProject)
+
 const addProjectBtn = document.querySelector(".add-project")
 const projectDialog = document.querySelector(".project-dialog")
 const submitProjectBtn = document.querySelector("#submit-project")
@@ -36,6 +39,8 @@ function updateProjectUI(){
         projects.appendChild(projectCard)
     });
 }
+
+updateProjectUI()
 
 addProjectBtn.addEventListener("click", () => showProjectDialog())
 submitProjectBtn.addEventListener("click", addNewProject)
