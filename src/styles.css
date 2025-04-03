@@ -10,29 +10,106 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: lightblue;
+    gap: 20px;
+    background-color: #80EF80;
 }
 
 #project-container {
-    width: 35vw;
+    width: 20%;
     height: 80vh;
-    background-color: lightgreen;
+    padding: 20px 10px;
+    background-color: #8CBD8C;
+    border: solid 2px #173317;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.task-filter{
+    display: grid;
+    gap: 3px;
+}
+
+.task-filter > button{
+    font-size: 1rem;
+    background-color: #768A76;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 3px;
+    border: solid 2px #173317;
+    border-radius: 20px;
 }
 
 .add-project {
-    font-size: 1.3rem;
-    padding: 10px 60px;
+    font-size: 1.2rem;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 5px;
+    border: solid 2px #173317;
+    border-radius: 20px;
+}
 
+.line{
+    width: 100%;
+    border: #173317 solid 1px;
 }
 
 .projects{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.projects > div {
     display: grid;
-    align-items: center;
-    justify-content: center;
+    grid-template-columns: 1fr auto;
+} 
+
+.projects button{
+    font-size: 1rem;
+    border: none;
+    border: solid 2px #173317;
+    font-weight: bold;
+}
+
+.projects button:first-of-type{
+    background-color: #e0ede0;
+    border-right: 0px;
+}
+
+.projects button:last-of-type{
+    background-color: red;
+    padding: 5px 10px;
 }
 
 #task-container {
-    width: 35vw;
+    width: 20%;
     height: 80vh;
-    background-color: lightpink;
+    padding: 20px 10px;
+    background-color: #768A76;
+    border: solid 2px #173317;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#task-container > button {
+    font-size: 1.1rem;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 5px;
+    border: solid 2px #173317;
+    border-radius: 20px;
+}
+
+#task-container > hr {
+    width: 100%;
+    border: #173317 solid 1px;
 }
