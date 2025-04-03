@@ -31,6 +31,8 @@ function updateTaskUI(project) {
         const taskName = document.createElement("button")
         const taskDeleteBtn = document.createElement("button")
 
+        taskDeleteBtn.onclick = () => deleteTask(project, task)
+
         taskName.textContent = task.title
         taskDeleteBtn.textContent = "DLT"
 
@@ -40,7 +42,6 @@ function updateTaskUI(project) {
         taskContainer.appendChild(tasks)
     });
 }
-
 
 function showTaskDialog() {
     taskDialog.showModal()
@@ -55,6 +56,14 @@ function addNewTask(project) {
     const newTask = new Task(newTaskName, newTaskDesc, newTaskDueDate, newTaskPriority)
 
     project.addTask(newTask)
-    updateTaskUI(project)
+    getTaskUi(project)
+
+    taskTitleInp.value = taskDescInp.value = taskDueDateInp.value = taskPriorityInp.value = ""
+
     console.log(project.getProjectName(), project.getTaskList())
+}
+
+function deleteTask(project, task){
+    project.removeTask(task)
+    getTaskUi(project)
 }
