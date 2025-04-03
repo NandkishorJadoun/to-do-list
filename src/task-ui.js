@@ -13,6 +13,7 @@ const taskPriorityInp = document.querySelector("#task-priority")
 export function getTaskUi(project) {
     taskContainer.textContent = ""
     getAddTaskBtn()
+    getTaskLineSeparator()
     submitTaskBtn.onclick = () => addNewTask(project)
     updateTaskUI(project)
 }
@@ -22,6 +23,11 @@ function getAddTaskBtn() {
     addTaskBtn.textContent = "Add Tasks"
     addTaskBtn.onclick = () => showTaskDialog()
     taskContainer.appendChild(addTaskBtn)
+}
+
+function getTaskLineSeparator(){
+    const lineSeparater = document.createElement("hr")
+    taskContainer.appendChild(lineSeparator)
 }
 
 function updateTaskUI(project) {
@@ -35,7 +41,7 @@ function updateTaskUI(project) {
         taskDeleteBtn.onclick = () => deleteTask(project, task)
 
         taskName.textContent = task.title
-        taskDeleteBtn.textContent = "DLT"
+        taskDeleteBtn.textContent = "X"
 
         taskCard.appendChild(taskName)
         taskCard.appendChild(taskDeleteBtn)
