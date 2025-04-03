@@ -2,8 +2,6 @@ import { addProject, removeProject, getProjectList, Project } from "./project";
 
 import "./styles.css"
 
-import { Task } from "./task";
-
 import { getTaskUi } from "./task-ui";
 
 const addProjectBtn = document.querySelector(".add-project")
@@ -25,10 +23,12 @@ function updateProjectUI(){
         projectDeleteBtn.textContent = "X"
         projectName.textContent = project.getProjectName()
 
-        projectDeleteBtn.onclick = () => deleteProject(project) 
+        projectDeleteBtn.onclick = () => {
+            deleteProject(project) 
+        }
+
         projectName.onclick = () => {
             getTaskUi(project)
-            console.log(project.getProjectName())
         }
 
         projectCard.appendChild(projectName)
