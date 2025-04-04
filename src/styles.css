@@ -113,3 +113,33 @@ body {
     width: 100%;
     border: #173317 solid 1px;
 }
+
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.tasks > div{
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
+.tasks button{
+    font-size: 0.9rem;
+    border: solid 2px #173317;
+    font-weight: bold;
+}
+
+.tasks button:first-of-type{
+    background-color: #e0ede0;
+    border-right: 0px;
+}
+
+.tasks button:last-of-type{
+    background-color: red;
+    padding: 5px 10px;
+}
