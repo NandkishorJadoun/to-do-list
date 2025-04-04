@@ -26,13 +26,17 @@ function getAddTaskBtn() {
 }
 
 function getTaskLineSeparator(){
-    const lineSeparater = document.createElement("hr")
+    const lineSeparator = document.createElement("hr")
     taskContainer.appendChild(lineSeparator)
 }
 
 function updateTaskUI(project) {
+    
+    const tasks = document.createElement("div")
+    tasks.classList.add("tasks")
+    taskContainer.appendChild(tasks)
+
     project.getTaskList().forEach(task => {
-        const tasks = document.createElement("div")
         const taskCard = document.createElement("div")
         const taskName = document.createElement("button")
         const taskDeleteBtn = document.createElement("button")
@@ -46,7 +50,6 @@ function updateTaskUI(project) {
         taskCard.appendChild(taskName)
         taskCard.appendChild(taskDeleteBtn)
         tasks.appendChild(taskCard)
-        taskContainer.appendChild(tasks)
     });
 }
 
