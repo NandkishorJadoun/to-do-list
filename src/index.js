@@ -4,8 +4,6 @@ import "./styles.css"
 
 import { getTaskUi } from "./task-ui";
 
-const defaultProject = Project("Default")
-addProject(defaultProject)
 
 const addProjectBtn = document.querySelector(".add-project")
 const projectDialog = document.querySelector(".project-dialog")
