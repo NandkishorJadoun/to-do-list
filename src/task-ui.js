@@ -1,4 +1,7 @@
 import { Task } from "./task";
+import plusCircleImage from "./SVGs/plus-circle.svg"
+import ripImage from "./SVGs/rip.svg"
+
 
 const taskContainer = document.querySelector("#task-container")
 const taskDialog = document.querySelector(".task-dialog")
@@ -9,6 +12,36 @@ const taskDescInp = document.querySelector("#task-desc")
 const taskDueDateInp = document.querySelector("#task-due-date")
 const taskPriorityInp = document.querySelector("#task-priority")
 
+export function initTask(){
+
+    taskContainer.textContent = "";
+    taskContainer.classList.add("task-container-msg")
+
+    const taskMessage = document.createElement("div");
+    taskMessage.textContent = "Click on Projects to Add/See Tasks!"
+
+    const taskMsgImg = document.createElement("img");
+    taskMsgImg.src = plusCircleImage;
+
+    taskContainer.appendChild(taskMsgImg)
+    taskContainer.appendChild(taskMessage)
+}
+
+export function getProjectDeleteMessage(){
+
+    taskContainer.textContent = ""
+    taskContainer.classList.add("task-container-msg")
+
+    const taskMessage = document.createElement("div")
+    taskMessage.textContent = "Project Has Been Deleted!"
+
+    const dltMsgImg = document.createElement("img");
+    dltMsgImg.src = ripImage
+
+    taskContainer.appendChild(dltMsgImg)
+    taskContainer.appendChild(taskMessage)
+
+}
 
 export function getTaskUi(project) {
     taskContainer.textContent = ""
@@ -34,6 +67,7 @@ function updateTaskUI(project) {
 
     const tasks = document.createElement("div")
     tasks.classList.add("tasks")
+    taskContainer.classList.remove("init-task-container")
     taskContainer.appendChild(tasks)
 
     project.getTaskList().forEach(task => {

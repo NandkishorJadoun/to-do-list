@@ -1,7 +1,6 @@
 import { addProject, removeProject, getProjectList, Project } from "./project";
 
-
-import { getTaskUi } from "./task-ui";
+import { getTaskUi,initTask, getProjectDeleteMessage } from "./task-ui";
 
 export function init() { 
 
@@ -26,6 +25,7 @@ export function init() {
 
             projectDeleteBtn.onclick = () => {
                 deleteProject(project)
+                getProjectDeleteMessage()
             }
 
             projectName.onclick = () => {
@@ -57,7 +57,9 @@ export function init() {
             updateProjectUI()
             projectDialog.close()
         }
-        
+
+        initTask()
+
     }
 
     function deleteProject(project) {

@@ -86,6 +86,21 @@ body {
     padding: 5px 10px;
 }
 
+.task-container-msg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.task-container-msg > img{
+    height: 150px;
+    width: 70%;
+    
+}
+
 #task-container {
     width: 20%;
     height: 80vh;
