@@ -1,8 +1,8 @@
 import { addProject, removeProject, getProjectList, Project } from "./project";
 
-import { getTaskUi,initTask, getProjectDeleteMessage } from "./task-ui";
+import { getTaskUi, initTask, getProjectDeleteMessage } from "./task-ui";
 
-export function init() { 
+export function init(){
 
     const addProjectBtn = document.querySelector(".add-project")
     const projectDialog = document.querySelector(".project-dialog")
@@ -48,7 +48,7 @@ export function init() {
     }
 
     function addNewProject() {
-        
+
         if(projectInp.value){
             const newProjectName = projectInp.value
             const newProject = Project(newProjectName)

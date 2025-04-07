@@ -67,7 +67,7 @@ function updateTaskUI(project) {
 
     const tasks = document.createElement("div")
     tasks.classList.add("tasks")
-    taskContainer.classList.remove("init-task-container")
+    taskContainer.classList.remove("task-container-msg")
     taskContainer.appendChild(tasks)
 
     project.getTaskList().forEach(task => {

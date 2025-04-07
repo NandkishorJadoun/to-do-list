@@ -10,12 +10,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
     background-color: #80EF80;
 }
 
 #project-container {
     width: 20%;
+    min-width: 300px;
     height: 80vh;
     padding: 20px 10px;
     background-color: #8CBD8C;
@@ -24,22 +25,9 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-}
-
-.task-filter{
-    display: grid;
-    gap: 3px;
-}
-
-.task-filter > button{
-    font-size: 1rem;
-    background-color: #768A76;
-    color: black;
-    cursor: pointer;
-    font-weight: bold;
-    padding: 3px;
-    border: solid 2px #173317;
-    border-radius: 20px;
+    overflow: auto;
+    scrollbar-width: none;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
 }
 
 .add-project {
@@ -74,16 +62,35 @@ body {
     border: none;
     border: solid 2px #173317;
     font-weight: bold;
+    cursor: pointer;
 }
 
-.projects button:first-of-type{
+.projects button:first-of-type,
+.tasks button:first-of-type{
     background-color: #e0ede0;
     border-right: 0px;
 }
 
-.projects button:last-of-type{
+.projects button:last-of-type,
+.tasks button:last-of-type{
     background-color: red;
     padding: 5px 10px;
+}
+
+#task-container {
+    width: 20%;
+    min-width: 300px;
+    height: 80vh;
+    padding: 20px 10px;
+    background-color: #768A76;
+    border: solid 2px #173317;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow: auto;
+    scrollbar-width: none;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
 }
 
 .task-container-msg{
@@ -98,19 +105,6 @@ body {
 .task-container-msg > img{
     height: 150px;
     width: 70%;
-    
-}
-
-#task-container {
-    width: 20%;
-    height: 80vh;
-    padding: 20px 10px;
-    background-color: #768A76;
-    border: solid 2px #173317;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
 }
 
 #task-container > button {
@@ -147,16 +141,6 @@ body {
     font-size: 0.9rem;
     border: solid 2px #173317;
     font-weight: bold;
-}
-
-.tasks button:first-of-type{
-    background-color: #e0ede0;
-    border-right: 0px;
-}
-
-.tasks button:last-of-type{
-    background-color: red;
-    padding: 5px 10px;
 }
 
 .project-dialog,
